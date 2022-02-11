@@ -1,0 +1,17 @@
+RM := rm -rf
+BRIDGE_EXE := studio-mdk-bridge.exe
+UV4_EXE := "C:\MyProgram\Keil\UV4\UV4.exe"
+UVPROJX_LOC := "Z:\Project\STM32_Project\F407ZG\F407ZG_Seria_Test\MDK-ARM\F407ZG_Seria_Test.uvprojx"
+
+.PHONY: mdk_all
+
+mdk_all:
+	-$(BRIDGE_EXE) --build --uv4-path $(UV4_EXE) $(UVPROJX_LOC)
+
+mdk_clean:
+	-@$(RM) *
+	@echo 'success'
+
+
+
+*.elf: $(wildcard ..)
